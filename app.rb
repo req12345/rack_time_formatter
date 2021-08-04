@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require 'byebug'
+
 class App
   PATH_TIME = '/time'
   HEADER = { 'Content-Type' => 'text/plain' }.freeze
