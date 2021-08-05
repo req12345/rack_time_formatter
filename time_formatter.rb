@@ -12,10 +12,14 @@ class TimeFormatter
   end
 
   def check_formats
-    return unless @formats
     formats_array = @formats.split(',')
-    formats_array.each do |i|
-      TIME_FORMAT.include?(i.to_sym) ? @correct_formats.push(i) : @unknown_formats.push(i)
+
+    formats_array.each do |param|
+      if TIME_FORMAT.include?(param.to_sym)
+        @correct_formats.push(TIME_FORMAT[param.to_sym])
+      else
+        @unknown_formats.push(param)
+      end
     end
   end
 
@@ -24,12 +28,6 @@ class TimeFormatter
   end
 
   def time_now
-    symbols_array = []
-    TIME_FORMAT.each do |key, value|
-      @correct_formats.each do |i|
-        symbols_array << value if i.to_sym == key
-      end
-    end
-    Time.now.strftime(symbols_array.join('-'))
+    Time.now.strftime(@correct_formats.join('-'))
   end
 end
