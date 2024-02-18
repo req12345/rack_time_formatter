@@ -1,4 +1,4 @@
-  This is rack application "Time formatter". Apllication return formatted time, runtime header, logging request and return errors, unknown time formats and wrong path. 
+  This is rack application "Time formatter". Application return formatted time, runtime header, logging request and return error statuses and messages. 
 
   Valid formats:  year, month, day, hour, minute, second.
 
